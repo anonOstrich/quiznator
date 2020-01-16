@@ -209,7 +209,7 @@ const getCompleted = async () => {
   const quizIdsMap = quizIds.map(quizId => mongoose.Types.ObjectId(quizId))
 
   const answers = await QuizAnswer
-    .find({ quizId: { $in: quizIdsMap }, createdAt: { $gte: new Date(new Date() - 2592000000 * 6)}})
+    .find({ quizId: { $in: quizIdsMap }, createdAt: { $gte: new Date(new Date() - 2592000000 * 12)}})
     .sort({ createdAt: -1 })
     .exec()
 
